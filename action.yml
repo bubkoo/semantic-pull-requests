@@ -1,0 +1,37 @@
+name: Semantic Pull Requests
+description: Ensure your pull requests follow the Conventional Commits spec.
+author: bubkoo <bubkoo.wy@gmail.com>
+
+inputs:
+  GITHUB_TOKEN:
+    required: true
+    description: Your GitHub token for authentication.
+
+  config:
+    required: false
+    description: Match with PR labels. Comma separated and case insensitive labels.
+
+  check_name:
+    required: false
+    description: |
+      A string label to differentiate this status from the status of other systems.
+      This field is case-insensitive.
+    default: WIP
+
+  wip_desc:
+    required: false
+    description: A short description of the status.
+    default: work in progress
+
+  ready_desc:
+    required: false
+    description: A short description of the status.
+    default: ready for review
+
+runs:
+  using: node12
+  main: dist/index.js
+
+branding:
+  icon: check-circle
+  color: green
